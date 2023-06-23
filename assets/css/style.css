@@ -7,9 +7,47 @@ body {
   height: 100%;
 }
 
+h1 {
+  color: #d76e14;
+  font-weight: 600 !important;
+  font-size: 50px !important; 
+}
+
 h2 {
   color: #d76e14;
+  font-weight: 500 !important;
+  font-size: 40px !important; 
 }
+
+h3 {
+  color: black;
+  font-weight: 300 !important;
+  font-size: 30px !important; 
+}
+
+
+h4 {
+  color: black;
+  font-weight: 200 !important;
+  font-size: 26px !important; 
+}
+
+h6 { 
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+p {
+  color: black;
+  font-size: 20px;
+}
+
 
 .dropdown-menu .dropdown-item {
   width: 200px;
@@ -26,121 +64,361 @@ h2 {
   );
 }
 
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.title-historia {
+  color: #d76e14;
+  font-weight: 600 !important;
+  font-size: 44px !important; 
+
+}
+
+.texto-historia {
+  color: black;
+  font-weight: 400 !important;
+  font-size: 28px !important; 
+}
+
+
+
 .center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* .mision { 
-    background-image: url("/assets/img/mision-1.PNG");
-    height: 430px;
- }
 
- .vision { 
-    background-image: url("/assets/img/vision-1.PNG");
-    height: 430px;
- } */
-
-/* Container holding the image and the text */
-.mision {
-  position: relative;
-  text-align: center;
-  color: white;
+.border-md-right {
+  border-right: none;
 }
 
-.vision {
-  position: relative;
-  text-align: center;
-  color: white;
+@media (min-width: 768px) {
+  .border-md-right {
+    border-right: 3px solid white;
+  }
 }
 
-/* Bottom left text */
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
+@media (min-width: 577px) {
+.custom-text {
+  font-size: 30px; 
+}
 }
 
-/* Top left text */
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
+/* A partir de aquí, todas las reglas se aplicarán para dispositivos con una anchura máxima de 576px */
+@media (max-width: 576px) {
+  .custom-text {
+    font-size: 24px;
+    text-align: center;
+  }
 }
 
-/* Top right text */
-.top-right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
+
+@media (max-width: 576px) {
+  .custom-text-valores {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 500;
+  }
 }
 
-/* Bottom right text */
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
+@media (min-width: 577px) {
+  .custom-text-valores {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 500;
+  }
 }
 
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@media (min-width: 768px) {  /* Se aplica solo en pantallas medianas y más grandes */
+  .border-md-right {
+    border-right: 1px solid #0d2436; /* ajusta el grosor y el color del borde según sea necesario */
+    position: relative;
+  }
+
+  .border-md-right::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10%;  /* Ajusta según sea necesario */
+    bottom: 10%; /* Ajusta según sea necesario */
+    width: 1px;
+    background: #0d2436;
+  }
 }
 
-.container-team {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+.panel {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 20px;
+	color: #ffffff;
+	cursor: pointer;
+	flex: 0.5;
+	height: 500px;
+	margin: 10px;
+	position: relative;
+	transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+	font-size: 24px;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	margin: 0;
+	opacity: 0;
+}
+
+.panel.active {
+	flex: 1;
+}
+
+.panel.active h3 {
+	opacity: 1;
+	transition: opacity 0.3s ease-in 0.4s;
+}
+
+.panel h4 {
+	font-size: 12px;
+	position: absolute;
+	bottom: 5px;
+	left: 30px;
+	margin: 0;
+	opacity: 0;
+}
+
+.panel.active h4 {
+	opacity: 1;
+	transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+	.container {
+		width: 100vw;
+	}
+
+	.panel:nth-of-type(4),
+	.panel:nth-of-type(5) {
+		display: none;
+	}
+} */
+
+
+
+
+
+
+
+/* directores con expandingcards */
+.director-container {
   display: flex;
-  width: 50vw;
-  margin: 80px auto;
-  gap: 20px;
-  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
-.slide {
-  display: flex;
-  flex: 1;
+.director-panel {
+  background: #f7f7f7;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  margin: 10px;
   position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  width: 400px;
+  height: 599px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   cursor: pointer;
-  transition: flex 0.7s ease-in;
 }
 
-.slide > img {
+
+.director-panel img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 40px;
+  transition: transform 0.5s;
 }
 
-.slide > .title {
+.director-panel h3, .director-panel p {
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.6); /* // Fondo oscuro */
+  padding: 10px; /* // Espacio entre el texto y el borde del fondo */
+  border-radius: 20px; /* // Bordes redondeados para el fondo */
+  z-index: 2; /* // Asegura que el texto se muestre encima de las imágenes */
+}
+
+.director-panel h3 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+.director-panel p {
+  font-size: 18px;
+}
+
+.director-panel.active h3, .director-panel.active p {
+  opacity: 1;
+}
+
+.director-panel.active img {
+  transform: scale(1.2);
+}
+
+.img-fundadores {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+
+}
+
+
+ /* SEGUNDA PARTE EQUIPO DIRECTIVO */
+ .container-directorio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Separación entre fotos */
+}
+
+.panel-directorio {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.director-image-directorio {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in-out;
+  object-fit: cover;
+}
+
+.content-directorio {
   position: absolute;
   bottom: 0;
-  right: 20px;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 0.5s ease-in-out;
+  background: rgba(13, 36, 54,0.6); /* Fondo oscuro para el texto */
 }
 
-.active {
-  flex: 5;
+.panel-directorio:hover .content-directorio {
+  transform: translateY(0);
+}
+
+.panel-directorio:hover .director-image-directorio {
+  transform: scale(1.1);
+}
+
+.director-image-directorio {
+  border-radius: 20px;
+}
+
+.content-directorio * {
+  color: white !important; /* Esto hace que todo el texto dentro de content-directorio sea blanco */
+  
+}
+
+.content-directorio p {
+  margin-top: 0em; /* Ajusta según sea necesario */
+  line-height: 1.0em; /* Ajusta según sea necesario */
+}
+
+.content-directorio h3 {
+  margin-top: 0em; /* Ajusta según sea necesario */
+  line-height: 1.0em; /* Ajusta según sea necesario */
+ 
+}
+
+
+.botones * {
+  color: #d76e14;
+}
+
+
+.nombres-directores {
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 2px;
+}
+
+.titulo-directores {
+  font-weight: 400;
+}
+
+.puesto-directores {
+  font-weight: 400;
+}
+
+
+/* .director-panel:not(.active):hover {
+  width: 150px;
+  font-size: 16px;
+}
+ */
+
+
+/* FIN directores con expandingcards */
+
+body-team {
+	align-items: center;
+	background-color: #212121;
+	display: flex;
+	font-family: "Muli", sans-serif;
+	height: 100vh;
+	justify-content: center;
+	margin: 0;
+	overflow: hidden;
+}
+
+.container-team {
+	display: flex;
+	width: 90vw;
 }
 
 .pdf-proyectos {
   background-color: #4674b6;
 }
 
-.footer-oenergy {
-  background-color: #0d2436;
-}
-
 .team-directorio {
-  background: #9b9b9b;
-  background: linear-gradient(180deg, #9b9b9b 50%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(180deg, #9b9b9b 50%, rgba(255, 255, 255) 100%);
 }
 
 .bg-image-development {
@@ -199,64 +477,95 @@ h2 {
 
 /* counter */
 
-/* expanding cards agrosolar */
+.counter-number {
+  font-weight: 400 !important;
+  font-size: 70px !important; 
 
-.panel {
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 80vh;
-  border-radius: 60px;
-  color: #fff;
-  cursor: pointer;
-  flex: 1;
-  margin: 10px;
+}
+
+
+.text-justify {
+  text-align: justify;
+}
+
+
+.icono-escala {
+  width: 90px;
+  height: 90px;
+}
+
+ .timeline {
   position: relative;
-  transition: flex 0.7s ease-in;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.panel h3 {
-  font-size: 24px;
+.container-year {
+  position: relative;
+  padding: 20px;
+}
+
+.container-year.left {
+  text-align: right;
+}
+
+.container-year.right {
+  text-align: left;
+}
+
+.dot {
   position: absolute;
-  bottom: 20px;
-  left: 40px;
-  margin: 0;
-  opacity: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fca311;
+  border: 2px solid #0d2436;
 }
 
-.panel.active {
-  flex: 5;
+.content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
 }
 
-.panel.active h3 {
-  opacity: 1;
-  transition: opacity 0.3s ease-in 0.4s;
+
+#proyectos {
+  padding-top: 100px; /* Ajusta el espaciado superior según sea necesario */
+  padding-bottom: 50px; /* Ajusta el espaciado inferior según sea necesario */
 }
 
-@media (max-width: 480px) {
-  .container {
-    width: 100vw;
+#proyectos h2,
+#proyectos h5 {
+  font-size: 32px; /* Aumenta el tamaño de las fuentes según sea necesario */
+}
+
+#proyectos .row {
+  justify-content: center; /* Centra las columnas horizontalmente */
+}
+
+@media (min-width: 768px) {
+  #proyectos .col-md-3 {
+    max-width: 25%; /* Establece un ancho máximo para las columnas en pantallas medianas y más grandes */
   }
-
-  .panel:nth-of-type(4),
-  .panel:nth-of-type(5) {
-    display: none;
-  }
 }
 
-.trabajo-comunidades {
-  background: rgb(215, 110, 20);
-  background: linear-gradient(
-    180deg,
-    rgba(215, 110, 20, 1) 25%,
-    rgba(255, 255, 255, 1) 100%
-  );
+.border-right {
+  position: relative;
 }
 
-.row > div {
-  padding: 0 4px !important;
+.border-right::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;  /* Ajusta según sea necesario */
+  bottom: 40%; /* Ajusta según sea necesario */
+  width: 1px;
+  background: #0d2436;
 }
 
-img {
-  vertical-align: middle;
+a {
+  font-size: 20px;
 }
