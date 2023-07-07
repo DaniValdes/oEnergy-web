@@ -7,6 +7,8 @@ slideElements.forEach((slide) => {
   });
 });
 
+
+/* COUNTERS */
 const counters = document.querySelectorAll('.counter');
 
 const animateNumbers = () => {
@@ -44,41 +46,6 @@ ScrollReveal().reveal('.container-year', {
   reset: true
 });
 
-const panels = document.querySelectorAll('.director-panel');
-
-panels.forEach(panel => {
-    panel.addEventListener('click', () => {
-        // Remover la clase active de todas las tarjetas
-        panels.forEach(otherPanel => {
-            if (otherPanel !== panel) {
-                otherPanel.classList.remove('active');
-            }
-        });
-
-        // Toggle la clase active en la tarjeta clickeada
-        panel.classList.toggle('active');
-    });
-});
-
-
-function expandPanel(panel) {
-  panel.classList.toggle('active');
-}
-
-
-// Efecto de parallax al hacer scroll
-window.addEventListener("scroll", function() {
-  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  var parallaxSections = document.getElementsByClassName("parallax-section");
-
-  for (var i = 0; i < parallaxSections.length; i++) {
-    var section = parallaxSections[i];
-    var sectionOffset = section.offsetTop;
-    var yPos = (scrollTop - sectionOffset) / 2;
-
-    section.style.backgroundPositionY = yPos + "px";
-  }
-});
 
 
 
@@ -88,12 +55,18 @@ let circleItems = document.querySelectorAll('.circle');
 circleItems.forEach(circle => {
   let content = circle.parentNode;
   let pTags = content.querySelectorAll('p');
+  let imageContainer = content.querySelector('.timeline-image-container'); // Selecciona el contenedor de la imagen
   let icon = circle.querySelector('.fa'); // Selecciona el icono dentro del círculo
 
   const showContent = () => {
     pTags.forEach(p => {
       p.classList.remove('hide-content');
     });
+    if (imageContainer) {
+      imageContainer.classList.remove('hide-content'); // Muestra el contenedor de la imagen
+      let imageContainerPTags = imageContainer.querySelectorAll('p');
+      imageContainerPTags.forEach(p => p.classList.remove('hide-content')); // Muestra los párrafos dentro del contenedor de la imagen
+    }
     content.classList.remove('hide-box-shadow'); 
     circle.style.borderColor = "#4674b6";  // Cambia el color del borde del círculo
     if (icon) icon.style.color = "#4674b6";  // Cambia el color del icono
@@ -103,6 +76,11 @@ circleItems.forEach(circle => {
     pTags.forEach(p => {
       p.classList.add('hide-content');
     });
+    if (imageContainer) {
+      imageContainer.classList.add('hide-content'); // Oculta el contenedor de la imagen
+      let imageContainerPTags = imageContainer.querySelectorAll('p');
+      imageContainerPTags.forEach(p => p.classList.add('hide-content')); // Oculta los párrafos dentro del contenedor de la imagen
+    }
     content.classList.add('hide-box-shadow');
     circle.style.borderColor = "grey";  // Cambia el color del borde del círculo a gris
     if (icon) icon.style.color = "grey";  // Cambia el color del icono a gris
@@ -139,3 +117,72 @@ circleItems.forEach(circle => {
 
   // Detectar cuando se hace scroll y llamar a la función para agregar la clase de animación
   window.addEventListener('scroll', addAnimationClass);
+
+
+  //SLIDER
+  var swiper = new Swiper(".slide-content", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    loop: true,
+    centerSlide: 'true',
+    fade: 'true',
+    grabCursor: 'true',
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints:{
+        0: {
+            slidesPerView: 1,
+        },
+        520: {
+            slidesPerView: 2,
+        },
+        950: {
+            slidesPerView: 3,
+        },
+    },
+  });
+
+
+  //MAPA
+// Obtener elementos del DOM
+const pins = document.querySelectorAll('.pin');
+const pinSelect = document.getElementById('pin-select');
+
+// Agregar evento de cambio al seleccionar un pin
+pinSelect.addEventListener('change', function() {
+  const selectedPins = Array.from(this.selectedOptions).map(option => option.value);
+  
+  // Ocultar todos los pines
+  pins.forEach(pin => pin.classList.add('hidden'));
+  
+  // Mostrar los pines seleccionados
+  selectedPins.forEach(pinId => {
+    const pin = document.querySelector(`[data-pin-id="${pinId}"]`);
+    if (pin) {
+      pin.classList.remove('hidden');
+    }
+  });
+});
+
+  
+
+
+
+  // Inicializa el mapa
+  
+  var map = L.map('map').setView([-33.4372, -70.6506], 3);
+  console.log(map);
+  
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 100,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  
